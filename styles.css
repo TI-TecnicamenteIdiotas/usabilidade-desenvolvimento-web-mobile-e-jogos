@@ -1,34 +1,85 @@
-.display-flex-column-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body,
+input,
+textarea,
+button {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+html {
+	font-family: 'Montserrat', sans-serif;
+	font-size: large;
+	color: white;
+
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+	animation: background-animation 8s linear infinite;
+	background-size: 200%;
+}
+
+@keyframes background-animation {
+	from {
+		background-position: 0% center;
+	}
+
+	to {
+		background-position: -200% center;
+	}
 }
 
 body {
-    margin: 0;
-    padding: 20px 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+
+	padding: 20px;
 }
 
-main {
-    max-width: 500px;
+body>section[atividade] {
+	flex-basis: 33%;
+	min-width: 380px;
+	align-self: flex-start;
 }
 
-.formInputWithLabel {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-
-    margin: 20px 0;
+h2 {
+	text-decoration: underline;
 }
 
-#atividade-1,
-#atividade-2,
-#atividade-3,
-#atividade-4,
-#atividade-5,
-#atividade-6 {
-    min-width: 280px;
+label {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+
+	margin: 20px 0;
 }
 
+input {
+	border: none;
+	border-radius: 20px;
+	outline: 2px solid rgba(0, 0, 0, 0.1);
+
+	padding: 8px;
+}
+
+button {
+	border: none;
+	border-radius: 20px;
+	outline: 2px solid rgba(0, 0, 0, 0.02);
+
+	padding: 8px;
+	cursor: pointer;
+
+	transition: all 250ms;
+}
+
+button:hover {
+	background-color: black;
+	color: white;
+}
