@@ -1,5 +1,6 @@
 const dateNow = new Date();
 let answerInputElement = null;
+const decimalPlaces = 2;
 
 const birthDateElement = document.getElementById("ageInput");
 const futureDateElement = document.getElementById("dateInput");
@@ -37,7 +38,7 @@ function submitQuestion2() {
 	const salaryBonus = Number(salaryBonusElement.value);
 
 	answerInputElement = document.getElementById("atividade-2-answer");
-	answerInputElement.value = salary + (salary * salaryBonus / 100);
+	answerInputElement.value = (salary + (salary * salaryBonus / 100)).toFixed(decimalPlaces);
 }
 
 const celsiusTempElement = document.getElementById("celsius-temp");
@@ -45,7 +46,7 @@ celsiusTempElement.addEventListener("input", (event) => {
 	const celsiusTemp = Number(celsiusTempElement.value);
 
 	answerInputElement = document.getElementById("atividade-3-answer");
-	answerInputElement.value = (celsiusTemp * 18) + 32;
+	answerInputElement.value = ((celsiusTemp * 18) + 32).toFixed(decimalPlaces);
 });
 
 const firstGradeElement = document.getElementById("first-grade");
@@ -57,7 +58,7 @@ function submitQuestion4() {
 	const thirdGrade = Number(thirdGradeElement.value);
 
 	answerInputElement = document.getElementById("atividade-4-answer");
-	answerInputElement.value = (firstGrade + secondGrade + thirdGrade) / 3
+	answerInputElement.value = ((firstGrade + secondGrade + thirdGrade) / 3).toFixed(decimalPlaces);
 }
 
 const firstPeccaryElement = document.getElementById("first-peccary");
@@ -67,7 +68,7 @@ function submitQuestion5() {
 	const secondPeccary = Number(secondPeccaryElement.value);
 
 	answerInputElement = document.getElementById("atividade-5-answer");
-	answerInputElement.value = (firstPeccary ** 2) + (secondPeccary ** 2);
+	answerInputElement.value = ((firstPeccary ** 2) + (secondPeccary ** 2)).toFixed(decimalPlaces);
 }
 
 const circleRadiusElement = document.getElementById("circle-radius");
@@ -77,7 +78,7 @@ const cElement = document.getElementById("atividade-6-answer-c");
 circleRadiusElement.addEventListener("input", (event) => {
 	const circleRadius = Number(event.target.value);
 
-	aElement.value = 2 * 3.14 * circleRadius;
-	bElement.value = 3.14 * (circleRadius ** 2);
-	cElement.value = 3 / 4 * 3.14 * circleRadius ** 3;
+	aElement.value = (2 * 3.14 * circleRadius).toFixed(decimalPlaces);
+	bElement.value = (3.14 * (circleRadius ** 2)).toFixed(decimalPlaces);
+	cElement.value = (3 / 4 * 3.14 * circleRadius ** 3).toFixed(decimalPlaces);
 });
