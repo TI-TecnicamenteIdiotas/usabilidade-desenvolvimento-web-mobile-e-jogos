@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./index.js"></script>
+    <title>Document</title>
+</head>
+
+<body class="display-flex-column-center">
+    <div id="atividade-1">
+        <h2>Atividade 1</h2>
+        <label class="formInputWithLabel">
+            Informe sua data de nascimento
+            <input id="ageInput" type="date" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Informe uma data para saber sua idade futura
+            <input id="dateInput" type="date" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Resposta
+            <input readonly id="atividade-1-answer" type="text" />
+        </label>
+
+        <button onclick="submitQuestion1()">Exibir Idade</button>
+    </div>
+
+    <div id="atividade-2">
+        <h2>Atividade 2</h2>
+        <label class="formInputWithLabel">
+            Informe o seu salário
+            <input id="salary" type="number" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Informe a quantidade de bônus em %
+            <input id="salary-bonus" type="text" onchange="" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Seu salário com bônus
+            <input readonly id="atividade-2-answer" type="text" />
+        </label>
+
+        <button onclick="submitQuestion2()">Exibir Salário</button>
+    </div>
+
+    <div id="atividade-3">
+        <h2>Atividade 3</h2>
+        <label class="formInputWithLabel">
+            Informe uma temperatura em graus Celsius
+            <input id="celsius-temp" type="number" placeholder="0" onkeyup="onChangeQuestion3()" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Sua temperatura em graus Fahrenheit
+            <input readonly id="atividade-3-answer" placeholder="32" type="number" />
+        </label>
+    </div>
+
+    <div id="atividade-4">
+        <h2>Atividade 4</h2>
+        <label class="formInputWithLabel">
+            Nota 1
+            <input id="first-grade" type="number" placeholder="--" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Nota 2
+            <input id="second-grade" type="number" placeholder="--" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Nota 3
+            <input id="third-grade" type="number" placeholder="--" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Média aritmética
+            <input readonly id="atividade-4-answer" placeholder="--" type="number" />
+        </label>
+
+        <button onclick="submitQuestion4()">Exibir média aritmética</button>
+    </div>
+
+    <div id="atividade-5">
+        <h2>Atividade 5</h2>
+        <label class="formInputWithLabel">
+            Primeiro Cateto
+            <input id="first-peccary" type="number" placeholder="b²" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Segundo Cateto
+            <input id="second-peccary" type="number" placeholder="c²" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Valor da Hipotenusa
+            <input readonly id="atividade-5-answer" placeholder="a²" type="number" />
+        </label>
+
+        <button onclick="submitQuestion5()">Exibir hipotenusa</button>
+    </div>
+
+    <div id="atividade-6">
+        <h2>Atividade 6</h2>
+        <label class="formInputWithLabel">
+            Insira o raio de sua circunferência
+            <input id="circle-radius" type="number" placeholder="0" onkeyup="onChangeQuestion6()" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Comprimento da sua circunferência
+            <input readonly id="atividade-6-answer-a" type="number"/>
+        </label>
+
+        <label class="formInputWithLabel">
+            Área da sua circunferência
+            <input readonly id="atividade-6-answer-b" type="number" />
+        </label>
+
+        <label class="formInputWithLabel">
+            Volume de sua circunferência
+            <input readonly id="atividade-6-answer-c" type="number" />
+        </label>
+    </div>
+</body>
+
+</html>

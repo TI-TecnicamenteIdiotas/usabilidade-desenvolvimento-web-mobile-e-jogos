@@ -1,0 +1,34 @@
+.display-flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    margin: 0;
+    padding: 20px 0;
+}
+
+main {
+    max-width: 500px;
+}
+
+.formInputWithLabel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    margin: 20px 0;
+}
+
+#atividade-1,
+#atividade-2,
+#atividade-3,
+#atividade-4,
+#atividade-5,
+#atividade-6 {
+    min-width: 280px;
+}
+
