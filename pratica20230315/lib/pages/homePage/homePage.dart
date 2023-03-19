@@ -33,8 +33,11 @@ class HomePageState extends State<HomePage> {
       body: ProductTableWidget(_products),
       floatingActionButton: FloatingActionButton(
         onPressed: showAddProductDialog,
-        tooltip: "Imprimir na tela",
-        child: const Icon(Icons.add_circle_outline_rounded),
+        tooltip: "Adicionar produto",
+        child: const Icon(
+          Icons.add_rounded,
+          size: 36,
+        ),
       ),
     );
   }
