@@ -19,10 +19,9 @@ abstract class DialogHelper {
       barrierDismissible: false,
       builder: (context) => DialogFormWidget(
         formKey: formKey,
-        titleText: "Novo produto",
         formFields: [
           NameFormFieldWidget(
-            labelText: "Nome",
+            labelText: "Nome do produto",
             onSaved: (newValue) {
               if (newValue == null || newValue.isEmpty) return;
 
@@ -31,7 +30,7 @@ abstract class DialogHelper {
             },
           ).build(context),
           NumberFormFieldWidget(
-            labelText: "Preço",
+            labelText: "Preço do produto",
             onSaved: (newValue) {
               if (newValue == null || newValue.isEmpty) return;
 

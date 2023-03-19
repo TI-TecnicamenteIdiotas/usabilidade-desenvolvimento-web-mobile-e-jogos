@@ -34,10 +34,7 @@ class HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: showAddProductDialog,
         tooltip: "Adicionar produto",
-        child: const Icon(
-          Icons.add_rounded,
-          size: 36,
-        ),
+        child: Icon(Icons.add_rounded),
       ),
     );
   }

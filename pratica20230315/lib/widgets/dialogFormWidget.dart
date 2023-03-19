@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 
 class DialogFormWidget extends StatelessWidget {
   final GlobalKey<FormState> formKey;
-  final String titleText;
   final List<TextFormField> formFields;
   final void Function()? handleCancel;
   final void Function() handleAccept;
@@ -10,7 +9,6 @@ class DialogFormWidget extends StatelessWidget {
   const DialogFormWidget({
     Key? key,
     required this.formKey,
-    required this.titleText,
     required this.formFields,
     required this.handleAccept,
     this.handleCancel = null,
@@ -20,7 +18,6 @@ class DialogFormWidget extends StatelessWidget {
   AlertDialog build(BuildContext context) {
     return AlertDialog(
       scrollable: true,
-      title: Text(titleText),
       actionsAlignment: MainAxisAlignment.spaceEvenly,
       content: Form(
         key: formKey,
@@ -30,13 +27,15 @@ class DialogFormWidget extends StatelessWidget {
         ),
       ),
       actions: [
-        ElevatedButton(
+        IconButton(
           onPressed: handleCancel ?? () => Navigator.of(context).pop(),
-          child: const Icon(Icons.cancel_outlined),
+          color: Colors.red.shade300,
+          icon: Icon(Icons.cancel_rounded),
         ),
-        ElevatedButton(
+        IconButton(
           onPressed: handleAccept,
-          child: const Icon(Icons.done_outline_rounded),
+          color: Colors.green.shade300,
+          icon: Icon(Icons.add_circle_rounded),
         ),
       ],
     );

@@ -14,11 +14,13 @@ class MainApp extends StatelessWidget {
       title: "Flutter 2023 03 15",
       theme: ThemeData(
         primaryColor: Colors.blue,
-        textTheme: TextTheme(
-          bodyMedium: TextStyle(
+        textTheme: const TextTheme(
+          bodyMedium: const TextStyle(
             color: Colors.white,
           ),
         ),
+        iconTheme: const IconThemeData(size: 36),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(iconSize: 36),
       ),
       home: HomePage(myShop.name),
     );
