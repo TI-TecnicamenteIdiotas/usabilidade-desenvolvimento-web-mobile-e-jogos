@@ -5,7 +5,7 @@ class Client {
 
   const Client(this.name);
 
-  Map toJson() => {"name": name};
+  Map<String, String> toJson() => {"name": name};
 
   @override
   String toString() => jsonEncode(this);

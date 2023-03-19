@@ -11,15 +11,15 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: "Flutter 2023 03 15",
       theme: ThemeData(
-          primaryColor: Colors.blue,
-          textTheme: TextTheme(
-            bodyMedium: TextStyle(
-              color: Colors.white,
-            ),
-          )),
+        primaryColor: Colors.blue,
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ),
       home: HomePage(myShop.name),
     );
   }

@@ -6,7 +6,7 @@ class Shop {
 
   const Shop(this.name, this.address);
 
-  Map toJson() => {"name": name, "address": address};
+  Map<String, String> toJson() => {"name": name, "address": address};
 
   @override
   String toString() => jsonEncode(this);
