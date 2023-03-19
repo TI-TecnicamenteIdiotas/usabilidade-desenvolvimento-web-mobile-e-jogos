@@ -4,3 +4,5 @@ linter:
     unnecessary_new: true
     prefer_double_quotes: true
     prefer_function_declarations_over_variables: true
+    use_named_constants: true
+    constant_identifier_names: true
