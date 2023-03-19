@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
 import "dtos/shop.dart";
-import "pages/homePage.dart";
+import "pages/homePage/homePage.dart";
 
 class MainApp extends StatelessWidget {
   final Shop myShop = const Shop("Lojinho", "Enderecinho");
