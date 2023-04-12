@@ -1,0 +1,54 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+tr:hover {
+    background-color: yellowgreen;
+    cursor: pointer;
+}
+
+th, td {
+    padding: 8px;
+}
+
+.even {
+    background-color: #8b9dc3;
+}
+
+.odd {
+    background-color: #dfe3ee;
+}
+
+table, td {
+    border: 2px solid blue;
+    border-collapse: collapse;
+}
+
+thead > tr, thead > tr:hover {
+    color: #fff;
+    background-color: #30508d;
+    cursor: unset;
+}
+
+.school-subject-row, .school-subject-row:hover {
+    text-align: left;
+    vertical-align: top;
+    background-color: #fff;
+    color: blue;
+    cursor: unset;
+}
+
+.average-row, .average-row:hover {
+    background-color: #ff4300;
+    color: #fff;
+    cursor: unset;
+}
