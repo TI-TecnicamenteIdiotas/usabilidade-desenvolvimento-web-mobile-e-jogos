@@ -1,0 +1,12 @@
+h1 {
+    margin: 0;
+    padding: 32px;
+    text-align: center;
+}
+
+header > ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
