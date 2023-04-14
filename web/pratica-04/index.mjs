@@ -1,5 +1,5 @@
-import {schoolSubjects, students} from "./utils";
-import {buildTableBody} from "./components/buildTableBody.js";
+import {schoolSubjects, students} from "./utils/index.mjs";
+import {buildTableBody} from "./components/buildTableBody.mjs";
 
 const tableBody = document.getElementsByTagName("tbody")[0];
 

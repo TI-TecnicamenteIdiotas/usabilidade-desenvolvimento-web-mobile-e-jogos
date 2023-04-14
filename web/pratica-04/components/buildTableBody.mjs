@@ -1,5 +1,5 @@
-import {buildSchoolSubjectRows} from "./buildSchoolSubjectRows.js";
-import {buildAverageGradesRow} from "./buildAverageGradesRow.js";
+import {buildSchoolSubjectRows} from "./buildSchoolSubjectRows.mjs";
+import {buildAverageGradesRow} from "./buildAverageGradesRow.mjs";
 
 export function buildTableBody(
     {
