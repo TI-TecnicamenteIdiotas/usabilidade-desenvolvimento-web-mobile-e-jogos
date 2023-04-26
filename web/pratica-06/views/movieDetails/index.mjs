@@ -1,10 +1,10 @@
 import {useHeader} from "../../utils/useHeader.mjs";
 import {useFooter} from "../../utils/useFooter.mjs";
+import {useTitle} from "../../utils/useTitle.mjs";
 
 const movieDetails = JSON.parse(sessionStorage.getItem("clickedMovie"));
 
-document.title = movieDetails.name;
-
+useTitle();
 useHeader();
 
 const movieImg = document.createElement("img");

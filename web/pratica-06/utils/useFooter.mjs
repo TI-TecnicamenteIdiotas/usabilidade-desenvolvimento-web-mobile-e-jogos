@@ -1,7 +1,20 @@
 import {projectAddress, projectFacebook, projectName, projectPhone, projectWhatsapp} from "../data/index.mjs";
 import {facebookIcon, phoneIcon, whatsappIcon} from "../assets/index.mjs";
 
+const footer = document.getElementsByTagName("footer")[0];
+
 function useFooter() {
+    footer.innerHTML =
+        `<div id="footer-wrapper">
+            <section id="footer-project-name"></section>
+            <section id="footer-project-address"></section>
+            <section id="footer-contact-wrapper">
+                <span id="footer-project-phone"></span>
+                <span id="footer-project-whatsapp"></span>
+                <span id="footer-project-facebook"></span>
+            </section>
+        </div>`
+
     const footerProjectName = document.getElementById("footer-project-name");
     footerProjectName.innerText = projectName;
 

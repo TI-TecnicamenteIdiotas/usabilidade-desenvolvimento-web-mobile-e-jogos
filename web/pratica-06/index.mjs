@@ -1,9 +1,9 @@
-import {movies, projectName} from './data/index.mjs';
+import {movies} from './data/index.mjs';
 import {useFooter} from "./utils/useFooter.mjs";
 import {useHeader} from "./utils/useHeader.mjs";
+import {useTitle} from "./utils/useTitle.mjs";
 
-document.title = projectName;
-
+useTitle();
 useHeader();
 
 const main = document.getElementsByTagName("main")[0];
