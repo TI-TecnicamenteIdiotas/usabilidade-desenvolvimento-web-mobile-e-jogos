@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Função f(x)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Função f(x)</h2>
+<label for="valorX">Valor de x:</label>
+<input type="number" id="valorX">
+<button id="calcularFuncao">Calcular f(x)</button>
+<p id="resultadoFuncao"></p>
+
+<script>
+document.getElementById('calcularFuncao').addEventListener('click', calcularFuncao);
+
+function calcularFuncao() {
+    let x = parseFloat(document.getElementById('valorX').value);
+    let resultado;
+
+    if (x < -2) {
+        resultado = 2 * x + 2;
+    } else if (x >= -2 && x < 3) {
+        resultado = 3;
+    } else {
+        resultado = -x;
+    }
+
+    document.getElementById('resultadoFuncao').innerText = `f(x) = ${resultado}`;
+}
+</script>
+</body>
+</html>

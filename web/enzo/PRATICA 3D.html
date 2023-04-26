@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Equação de Segundo Grau</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Equação de Segundo Grau</h2>
+<label for="a">Coeficiente a:</label>
+<input type="number" id="a" step="0.01">
+<label for="b">Coeficiente b:</label>
+<input type="number" id="b" step="0.01">
+<label for="c">Coeficiente c:</label>
+<input type="number" id="c" step="0.01">
+<button id="resolverEquacao">Resolver Equação</button>
+<p id="resultadoEquacao"></p>
+
+<script>
+document.getElementById('resolverEquacao').addEventListener('click', resolverEquacao);
+
+function resolverEquacao() {
+    let a = parseFloat(document.getElementById('a').value);
+    let b = parseFloat(document.getElementById('b').value);
+    let c = parseFloat(document.getElementById('c').value);
+    let resultado = '';
+
+    if (a === 0 && b === 0 && c === 0) {
+        resultado = 'Igualdade confirmada: 0 = 0';
+    } else if (a === 0 && b === 0 && c !== 0) {
+        resultado = 'Coeficientes informados incorretamente';
+    } else if (a === 0 && b !== 0) {
+        let x = -c / b;
+        resultado = `Esta é uma equação de primeiro grau: x = ${x}`;
+    } else {
+        let delta = b * b - 4 * a * c;
+        if (delta < 0) {
+            resultado = 'Esta é uma equação de segundo grau. Esta equação não possui raízes reais';
+        } else if (delta === 0) {
+            let x = -b / (2 * a);
+            resultado = `Esta é uma equação de segundo grau. Esta equação possui duas raízes reais iguais: x' = x'' = ${x}`;
+        } else {
+            let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            resultado = `Esta é uma equação de segundo grau. Esta equação possui duas raízes reais diferentes: x' = ${x1.toFixed(2)}, x'' = ${x2.toFixed(2)}`;
+        }
+    }
+
+    document.getElementById('resultadoEquacao').innerText = resultado;
+}
+</script>
+</body>
+</html>

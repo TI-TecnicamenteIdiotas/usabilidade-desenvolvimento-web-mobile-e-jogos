@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela Interativa</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+      }
+      table {
+          border-collapse: collapse;
+          width: 100%;
+      }
+      th, td {
+          border: 1px solid #000;
+          padding: 10px;
+          text-align: center;
+      }
+        tr:hover {
+            background-color: #ffffff !important;
+            color: #FF4500;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        tr:nth-child(even) {
+            background-color: #8b9dc3;
+        }
+        tr:nth-child(odd) {
+            background-color: #dfe3ee;
+        }
+        tr.header {
+          background-color: darkblue;
+          color: white;
+        }
+        tr.media {
+          background-color: rgb(255, 98, 0);
+          color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>Tabela Interativa</h2>
+<table>
+    <thead>
+        <tr class="header">
+            <th>Nome do aluno</th>
+            <th>Nota P1</th>
+            <th>Nota P2</th>
+            <th>Nota T1</th>
+            <th>Total</th>
+            <th>Faltas</th>
+        </tr>
+    </thead>
+    <tbody id="table-body">
+    </tbody>
+    <tfoot>
+        <tr class="media">
+            <td>Média</td>
+            <td colspan="4" id="media">x</td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+const estudantes = [ 
+    {nome: 'Ana', p1: 29, p2: 17, t1: 27, total: 73, faltas: 0},
+    {nome: 'Gisele', p1: 28, p2: 18, t1: 24, total: 70, faltas: 3},
+    {nome: 'Jane', p1: 26, p2: 20, t1: 24, total: 70, faltas: 1},
+    {nome: 'Jorge', p1: 25, p2: 19, t1: 29, total: 73, faltas: 0},
+    {nome: 'Marina', p1: 30, p2: 16, t1: 27, total: 73, faltas: 1}
+];
+
+        const tabelaCorpo = document.querySelector("#table-body");
+        const mediaColuna = document.querySelector("#media");
+
+        function criarlinha(estudantes) {
+            const tr = document.createElement('tr');
+
+            for (const key in estudantes) {
+                const td = document.createElement('td');
+                td.innerText = estudantes[key];
+                tr.appendChild(td);
+            }
+
+            tr.addEventListener('click', () => { alert(`Você clicou na linha do aluno: ${estudantes.nome}`);});
+
+            return tr;
+        }
+
+        function calcularMedia() {
+            const soma = estudantes.reduce((acc, estudantes) => acc + estudantes.total, 0);
+            const media = soma / estudantes.length;
+            return media.toFixed(1);
+        }
+
+        estudantes.forEach(estudantes => {
+            const tr = criarlinha(estudantes);
+            tabelaCorpo.appendChild(tr);
+        });
+
+        mediaColuna.innerText = calcularMedia();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Preço dos Produtos</title>
+</head>
+<body>
+<label for="codigoProduto">Código do produto:</label>
+<input type="number" id="codigoProduto">
+<button id="verificarPreco">Verificar preço</button>
+<p id="resultadoPreco"></p>
+
+<script>
+document.getElementById('verificarPreco').addEventListener('click', verificarPreco);
+
+function verificarPreco() {
+    let codigoProduto = parseInt(document.getElementById('codigoProduto').value);
+    let produtos = {
+        1: {nome: 'Sapato', preco: 99.99},
+        2: {nome: 'Bolsa', preco: 103.89},
+        3: {nome: 'Camisa', preco: 49.98},
+        4: {nome: 'Calça', preco: 89.72},
+        5: {nome: 'Blusa', preco: 97.35},
+    };
+
+    if (produtos.hasOwnProperty(codigoProduto)) {
+        document.getElementById('resultadoPreco').innerText = `Produto: ${produtos[codigoProduto].nome} - Preço: R$ ${produtos[codigoProduto].preco.toFixed(2)}`;
+    } else {
+        document.getElementById('resultadoPreco').innerText = 'Código de produto inválido!';
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela Interativa</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+      }
+      table {
+          border-collapse: collapse;
+          width: 100%;
+      }
+      th, td {
+          border: 1px solid #000;
+          padding: 10px;
+          text-align: center;
+      }
+      tr.header {
+          background-color: darkblue;
+          color: white;
+      }
+      tr.web {
+          background-color: lightgreen;
+      }
+      tr.logica {
+          background-color: yellow;
+      }
+      tr:hover {
+            background-color: #ffffff !important;
+            color: #FF4500;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+  </style>
+</head>
+<body>
+  <table id="Tabela">
+      <thead>
+          <tr class="header">
+              <th>Disciplina</th>
+              <th>Aluno</th>
+              <th>Nota P1</th>
+              <th>Nota P2</th>
+              <th>Total</th>
+          </tr>
+      </thead>
+      <tbody>
+      </tbody>
+  </table>
+  <script>
+    const data = [
+      {
+        disciplina: "Web",
+        alunos: [
+          { nome: "Jose da Silva", p1: 30, p2: 10 },
+          { nome: "Maria da Silva", p1: 25, p2: 7 },
+          { nome: "Ronildo Graves", p1: 12, p2: 3 },
+          { nome: "Joselita Santos", p1: 15, p2: 8 },
+        ],
+        media: function () {
+          return this.alunos.reduce((acc, aluno) => acc + aluno.p1 + aluno.p2, 0) / this.alunos.length;
+        },
+      },
+      {
+        disciplina: "Logica",
+        alunos: [
+          { nome: "Jose da Silva", p1: 20, p2: 9 },
+          { nome: "Maria da Silva", p1: 32, p2: 0 },
+          { nome: "Ronildo Graves", p1: 18, p2: 5 },
+          { nome: "Joselita Santos", p1: 35, p2: 5 },
+          { nome: "Janaina Murtosa", p1: 30, p2: 10 },
+        ],
+        media: function () {
+          return this.alunos.reduce((acc, aluno) => acc + aluno.p1 + aluno.p2, 0) / this.alunos.length;
+        },
+      },
+    ];
+  
+    const corpoTabela = document.querySelector("#Tabela tbody");
+    const linhaMedia = document.querySelector("#media");
+  
+    function alertaClick(mensagem) {
+      return function () {
+        alert(mensagem);
+      };
+    }
+  
+    for (const dadosDisciplina of data) {
+      const linhaDisciplina = document.createElement("tr");
+      linhaDisciplina.classList.add(dadosDisciplina.disciplina === "Web" ? "web" : "logica");
+      linhaDisciplina.addEventListener("click", alertaClick(`Disciplina: ${dadosDisciplina.disciplina}`))
+      const disciplinaColuna = document.createElement("td");
+      disciplinaColuna.rowSpan = dadosDisciplina.alunos.length + 2;
+      disciplinaColuna.innerText = dadosDisciplina.disciplina;
+      linhaDisciplina.appendChild(disciplinaColuna);
+      corpoTabela.appendChild(linhaDisciplina);
+
+      for (const aluno of dadosDisciplina.alunos) {
+        const linhaAluno = document.createElement("tr");
+        linhaAluno.classList.add(dadosDisciplina.disciplina === "Web" ? "web" : "logica");
+
+        const colunaNome = document.createElement("td");
+        colunaNome.innerText = aluno.nome;
+        colunaNome.addEventListener("click", alertaClick(`Aluno: ${aluno.nome}`));
+        linhaAluno.appendChild(colunaNome);
+
+        const celulaP1 = document.createElement("td");
+        celulaP1.innerText = aluno.p1;
+        celulaP1.addEventListener("click", alertaClick(`Nota P1: ${aluno.p1}`));
+        linhaAluno.appendChild(celulaP1);
+
+        const celulaP2 = document.createElement("td");
+        celulaP2.innerText = aluno.p2;
+        celulaP2.addEventListener("click", alertaClick(`Nota P2: ${aluno.p2}`));
+        linhaAluno.appendChild(celulaP2);
+
+        const celulaTotal = document.createElement("td");
+        celulaTotal.innerText = aluno.p1 + aluno.p2;
+        celulaTotal.addEventListener("click", alertaClick(`Total: ${aluno.p1 + aluno.p2}`));
+        linhaAluno.appendChild(celulaTotal);
+
+        corpoTabela.appendChild(linhaAluno);
+      }
+
+      const linhaMedia = document.createElement("tr");
+      linhaMedia.classList.add(dadosDisciplina.disciplina === "Web" ? "web" : "logica");
+
+      const celulaRotuloMedia = document.createElement("td");
+      celulaRotuloMedia.innerText = "Média " + dadosDisciplina.disciplina;
+      celulaRotuloMedia.addEventListener("click", alertaClick(`Média ${dadosDisciplina.disciplina}: ${dadosDisciplina.media()}`));
+      linhaMedia.appendChild(celulaRotuloMedia);
+
+      const celulaMedia = document.createElement("td");
+      celulaMedia.colSpan = 3;
+      celulaMedia.innerText = dadosDisciplina.media();
+      celulaMedia.addEventListener("click", alertaClick(`Média ${dadosDisciplina.disciplina}: ${dadosDisciplina.media()}`));
+      linhaMedia.appendChild(celulaMedia);
+      corpoTabela.appendChild(linhaMedia);
+  }
+</script>
+</body>
+</html>

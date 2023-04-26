@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Troco</title>
+</head>
+<body>
+<label for="valorCompra">Valor da compra:</label>
+<input type="number" id="valorCompra">
+<label for="valorPago">Valor pago:</label>
+<input type="number" id="valorPago">
+<button id="calcularTroco">Calcular troco</button>
+<p id="resultadoTroco"></p>
+
+<script>
+document.getElementById('calcularTroco').addEventListener('click', calcularTroco);
+
+function calcularTroco() {
+    let valorCompra = parseFloat(document.getElementById('valorCompra').value);
+    let valorPago = parseFloat(document.getElementById('valorPago').value);
+
+    if (valorPago < valorCompra) {
+        document.getElementById('resultadoTroco').innerText = 'A quantia paga é insuficiente para realizar a compra!';
+    } else {
+        let troco = valorPago - valorCompra;
+        let notas = [50, 20, 10, 5, 2, 1];
+        let resultado = `Troco: R$ ${troco.toFixed(2)}\n`;
+
+        for (let nota of notas) {
+            let quantidade = Math.floor(troco / nota);
+            troco %= nota;
+            resultado += `Notas de R$ ${nota.toFixed(2)}: ${quantidade}\n`;
+        }
+
+        document.getElementById('resultadoTroco').innerText = resultado;
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Folha de Pagamento</title>
+</head>
+<body>
+<label for="codigoColaborador">Código do(a) colaborador(a):</label>
+<input type="number" id="codigoColaborador">
+<label for="horasTrabalhadas">Horas trabalhadas:</label>
+<input type="number" id="horasTrabalhadas">
+<button id="calcularPagamento">Calcular pagamento</button>
+<p id="resultadoPagamento"></p>
+
+<script>
+document.getElementById('calcularPagamento').addEventListener('click', calcularPagamento);
+
+function calcularPagamento() {
+    let codigoColaborador = parseInt(document.getElementById('codigoColaborador').value);
+    let horasTrabalhadas = parseFloat(document.getElementById('horasTrabalhadas').value);
+    let colaboradores = {
+        1: {nome: 'Ana', valorHora: 45.78},
+        2: {nome: 'Bruna', valorHora: 60.00},
+        3: {nome: 'Carlos', valorHora: 38.99},
+        4: {nome: 'Diogo', valorHora: 45.78},
+        5: {nome: 'Ester', valorHora: 45.78},
+    };
+
+    if (colaboradores.hasOwnProperty(codigoColaborador)) {
+        let pagamento = horasTrabalhadas * colaboradores[codigoColaborador].valorHora;
+        document.getElementById('resultadoPagamento').innerText = `Colaborador(a): ${colaboradores[codigoColaborador].nome} - Valor a ser pago: R$ ${pagamento.toFixed(2)}`;
+    } else {
+        document.getElementById('resultadoPagamento').innerText = 'Código de colaborador(a) inválido!';
+    }
+}
+</script>
+</body>
+</html>

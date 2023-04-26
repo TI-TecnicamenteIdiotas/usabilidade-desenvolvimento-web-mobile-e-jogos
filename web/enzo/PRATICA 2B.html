@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>IMC</title>
+</head>
+<body>
+<label for="peso">Peso (kg):</label>
+<input type="number" id="peso">
+<label for="altura">Altura (m):</label>
+<input type="number" step="0.01" id="altura">
+<button id="calcularIMC">Calcular IMC</button>
+<p id="resultadoIMC"></p>
+
+<script>
+document.getElementById('calcularIMC').addEventListener('click', calcularIMC);
+
+function calcularIMC() {
+    let peso = parseFloat(document.getElementById('peso').value);
+    let altura = parseFloat(document.getElementById('altura').value);
+    let imc = peso / (altura * altura);
+
+    let situacao = '';
+    if (imc < 20) situacao = 'Abaixo do Peso';
+    else if (imc < 25) situacao = 'Normal';
+    else if (imc < 30) situacao = 'Sobrepeso';
+    else if (imc < 35) situacao = 'Obesidade grau I';
+    else if (imc < 40) situacao = 'Obesidade grau II';
+    else situacao = 'Obesidade grau III';
+
+    document.getElementById('resultadoIMC').innerText = `IMC: ${imc.toFixed(2)} - ${situacao}`;
+}
+</script>
+</body>
+</html>

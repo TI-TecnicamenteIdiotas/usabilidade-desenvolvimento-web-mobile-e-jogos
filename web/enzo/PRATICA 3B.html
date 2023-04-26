@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Média Aritmética</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Média Aritmética</h2>
+<label for="numeros">Digite os números separados por vírgulas:</label>
+<input type="text" id="numeros">
+<button id="calcularMedia">Calcular Média</button>
+<p id="resultadoMedia"></p>
+
+<script>
+document.getElementById('calcularMedia').addEventListener('click', calcularMedia);
+
+function calcularMedia() {
+    let numeros = document.getElementById('numeros').value.split(',').map(n => parseFloat(n));
+    let soma = numeros.reduce((acc, n) => acc + n, 0);
+    let media = soma / numeros.length;
+    document.getElementById('resultadoMedia').innerText = `Média: ${media}`;
+}
+</script>
+</body>
+</html>

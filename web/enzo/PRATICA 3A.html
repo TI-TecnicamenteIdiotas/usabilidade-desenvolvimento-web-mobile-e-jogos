@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Processar Troco</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Processar Troco</h2>
+<label for="valorCompra">Valor da compra:</label>
+<input type="number" id="valorCompra" step="0.01">
+<label for="valorPago">Valor pago:</label>
+<input type="number" id="valorPago" step="0.01">
+<button id="calcularTroco">Calcular Troco</button>
+<p id="resultadoTroco"></p>
+
+<script>
+document.getElementById('calcularTroco').addEventListener('click', calcularTroco);
+
+function calcularTroco() {
+    let valorCompra = parseFloat(document.getElementById('valorCompra').value);
+    let valorPago = parseFloat(document.getElementById('valorPago').value);
+    let notas = [50, 20, 10, 5, 2, 1];
+    let troco = valorPago - valorCompra;
+    let resultado = '';
+
+    if (valorPago < valorCompra) {
+        resultado = 'A quantia paga é insuficiente para realizar a compra!';
+    } else {
+        resultado = `Troco: R$ ${troco.toFixed(2)}\n`;
+        notas.forEach(nota => {
+            let qtdNotas = Math.floor(troco / nota);
+            troco %= nota;
+            resultado += `Notas de R$ ${nota.toFixed(2)}: ${qtdNotas}\n`;
+        });
+    }
+
+    document.getElementById('resultadoTroco').innerText = resultado;
+}
+</script>
+</body>
+</html>

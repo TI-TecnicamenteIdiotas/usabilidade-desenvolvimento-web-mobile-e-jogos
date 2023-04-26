@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabela Interativa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th {
+          background-color: darkblue;
+          color: white;
+        }
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:hover {
+            background-color: #FF4500 !important;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #8b9dc3;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #dfe3ee;
+        }
+        tr.average {
+          background-color: rgb(255, 98, 0);
+          color: white;
+        }
+    </style>
+    </head>
+    <body>
+    <table id="gradesTable">
+      <thead>
+        <tr>
+          <th>Disciplina</th>
+          <th>Aluno</th>
+          <th>Nota P1</th>
+          <th>Nota P2</th>
+          <th>Total</th>
+        </tr>
+
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <script>
+      const data = [
+        {
+          disciplina: "Web",
+          estudantes: [
+            { nome: "Ana", p1: 29, p2: 17 },
+            { nome: "Eva", p1: 27, p2: 17 },
+            { nome: "Gil", p1: 28, p2: 15 },
+            { nome: "Ise", p1: 25, p2: 15 },
+            { nome: "Ive", p1: 26, p2: 20 },
+          ],
+        },
+        {
+          disciplina: "Lógica de Programação",
+          estudantes: [
+            { nome: "Ana", p1: 29, p2: 17 },
+            { nome: "Eva", p1: 27, p2: 17 },
+            { nome: "Gil", p1: 28, p2: 15 },
+            { nome: "Ise", p1: 25, p2: 15 },
+            { nome: "Ive", p1: 26, p2: 23 },
+          ],
+        },
+      ];
+    
+      function criarTabela() {
+        const Tabela = document.querySelector("#gradesTable tbody");
+    
+        for (const disciplinaData of data) {
+          const disciplinaLinha = document.createElement("tr");
+          const disciplinaColuna = document.createElement("td");
+          disciplinaColuna.rowSpan = disciplinaData.estudantes.length + 2;
+          disciplinaColuna.textContent = disciplinaData.disciplina;
+          disciplinaLinha.appendChild(disciplinaColuna);
+          Tabela.appendChild(disciplinaLinha);
+    
+          for (const estudantes of disciplinaData.estudantes) {
+            const estudantesLinha = document.createElement("tr");
+            const nomeColuna = document.createElement("td");
+            const p1Coluna = document.createElement("td");
+            const p2Coluna = document.createElement("td");
+            const totalColuna = document.createElement("td");
+    
+            nomeColuna.textContent = estudantes.nome;
+            p1Coluna.textContent = estudantes.p1;
+            p2Coluna.textContent = estudantes.p2;
+            totalColuna.textContent = estudantes.p1 + estudantes.p2;
+    
+            estudantesLinha.appendChild(nomeColuna);
+            estudantesLinha.appendChild(p1Coluna);
+            estudantesLinha.appendChild(p2Coluna);
+            estudantesLinha.appendChild(totalColuna);
+            Tabela.appendChild(estudantesLinha);
+          }
+
+          const mediaLinha = document.createElement("tr");
+          mediaLinha.classList.add("average");
+          const mediaLabelColuna = document.createElement("td");
+          const mediaValorColuna = document.createElement("td");
+
+          mediaLabelColuna.textContent = `Média ${disciplinaData.disciplina}`;
+          mediaValorColuna.colSpan = 3;
+
+          const media = disciplinaData.estudantes.reduce((acc, estudantes) => acc + estudantes.p1 + estudantes.p2, 0) / disciplinaData.estudantes.length;
+          mediaValorColuna.textContent = media.toFixed(1);
+
+          mediaLinha.appendChild(mediaLabelColuna);
+          mediaLinha.appendChild(mediaValorColuna);
+          Tabela.appendChild(mediaLinha);
+        }
+      }
+
+      criarTabela();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 01</title>
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+      h1, h2, h3 {
+        color: #444;
+        text-align: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      }
+      label, input {
+        display: block;
+        margin: 10px;
+        width: 100%;
+      }
+      input[type="number"] {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        background-color: #f2f2f2;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #1E90FF;
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #187bcd;
+      }
+      #resultado {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      }
+      #resultado p {
+        margin: 10px;
+      }
+    </style>
+</head>
+<body>
+    <center><h1>Atividade 01</h1></center>
+    <h2>Exercico 1:</h2>
+  <body>
+    <h3>Calculadora de Idade</h3>
+    <form>
+      <label for="ano-nascimento">Ano de Nascimento:</label>
+      <input type="number" id="ano-nascimento" name="ano-nascimento" required>
+
+      <label for="ano-atual">Ano Atual:</label>
+      <input type="number" id="ano-atual" name="ano-atual" required>
+
+      <button type="button" onclick="calcularIdades()">Calcular Idades</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+      function calcularIdades() {
+        const anoNascimento = document.getElementById('ano-nascimento').value;
+        const anoAtual = document.getElementById('ano-atual').value;
+
+        const idadeAtual = anoAtual - anoNascimento;
+        const idade2050 = 2050 - anoNascimento;
+
+        const resultado = document.getElementById('resultado');
+        resultado.innerHTML = `
+          <p>Sua idade atual é: ${idadeAtual} anos.</p>
+          <p>Você terá ${idade2050} anos em 2050.</p>
+        `;
+      }
+    </script>
+
+	<h2>Exercico 2:</h2>
+    <h3>Calculadora de Salário</h3>
+    <form>
+      <label for="salario-atual">Salário Atual:</label>
+      <input type="number" id="salario-atual" name="salario-atual" required>
+
+      <button type="button" onclick="calcularNovoSalario()">Calcular Novo Salário</button>
+    </form>
+
+    <div id="resultado2"></div>
+
+    <script>
+      function calcularNovoSalario() {
+        const salarioAtual = document.getElementById('salario-atual').value;
+
+        const novoSalario = parseFloat(salarioAtual) * 1.25; // Calcula o novo salário com aumento de 25%
+
+        const resultado = document.getElementById('resultado2');
+        resultado.innerHTML = `
+          <p>O novo salário do funcionário é R$ ${novoSalario.toFixed(2)}</p>
+        `;
+      }
+    </script>
+
+	<h2>Exercico 3:</h2>
+    <h3>Conversor de Temperatura</h3>
+    <form>
+      <label for="temperatura-celsius">Temperatura em Celsius:</label>
+      <input type="number" id="temperatura-celsius" name="temperatura-celsius" required>
+
+      <button type="button" onclick="converterTemperatura()">Converter para Fahrenheit</button>
+    </form>
+
+    <div id="resultado3"></div>
+
+    <script>
+      function converterTemperatura() {
+        const temperaturaCelsius = document.getElementById('temperatura-celsius').value;
+
+        const temperaturaFahrenheit = (parseFloat(temperaturaCelsius) * 1.8) + 32; // Calcula a temperatura em Fahrenheit
+
+        const resultado = document.getElementById('resultado3');
+        resultado.innerHTML = `
+          <p>A temperatura em Fahrenheit é ${temperaturaFahrenheit.toFixed(1)}°F</p>
+        `;
+      }
+    </script>
+
+	<h2>Exercico 4:</h2>
+    <h3>Calculadora de Média</h3>
+    <form>
+      <label for="nota1">Nota 1:</label>
+      <input type="number" id="nota1" name="nota1" required>
+
+      <label for="nota2">Nota 2:</label>
+      <input type="number" id="nota2" name="nota2" required>
+
+      <label for="nota3">Nota 3:</label>
+      <input type="number" id="nota3" name="nota3" required>
+
+      <button type="button" onclick="calcularMedia()">Calcular Média</button>
+    </form>
+
+    <div id="resultado4"></div>
+
+    <script>
+      function calcularMedia() {
+        const nota1 = parseFloat(document.getElementById('nota1').value);
+        const nota2 = parseFloat(document.getElementById('nota2').value);
+        const nota3 = parseFloat(document.getElementById('nota3').value);
+
+        const media = (nota1 + nota2 + nota3) / 3; // Calcula a média aritmética
+
+        const resultado = document.getElementById('resultado4');
+        resultado.innerHTML = `
+          <p>A média aritmética das notas é ${media.toFixed(1)}</p>
+        `;
+      }
+    </script>
+
+	<h2>Exercico 5:</h2>
+    <h3>Calculadora de Hipotenusa</h3>
+    <form>
+      <label for="cateto1">Cateto 1:</label>
+      <input type="number" id="cateto1" name="cateto1" required>
+
+      <label for="cateto2">Cateto 2:</label>
+      <input type="number" id="cateto2" name="cateto2" required>
+
+      <button type="button" onclick="calcularHipotenusa()">Calcular Hipotenusa</button>
+    </form>
+
+    <div id="resultado5"></div>
+
+    <script>
+      function calcularHipotenusa() {
+        const cateto1 = parseFloat(document.getElementById('cateto1').value);
+        const cateto2 = parseFloat(document.getElementById('cateto2').value);
+
+        const hipotenusa = Math.sqrt((cateto1 * cateto1) + (cateto2 * cateto2)); // Calcula a hipotenusa
+
+        const resultado = document.getElementById('resultado5');
+        resultado.innerHTML = `
+          <p>O valor da hipotenusa é ${hipotenusa.toFixed(1)}</p>
+        `;
+      }
+    </script>
+    <h2>Exercico 6:
+        <h3>Calculadora de Esfera</h3>
+        <form>
+          <label for="raio">Raio:</label>
+          <input type="number" id="raio" name="raio" required>
+    
+          <button type="button" onclick="calcularComprimento()">Calcular Comprimento</button>
+          <button type="button" onclick="calcularArea()">Calcular Área</button>
+          <button type="button" onclick="calcularVolume()">Calcular Volume</button>
+        </form>
+    
+        <div id="resultado6"></div>
+    
+        <script>
+          const PI = Math.PI; // Constante PI
+    
+          function calcularComprimento() {
+            const raio = parseFloat(document.getElementById('raio').value);
+    
+            const comprimento = 2 * PI * raio; // Calcula o comprimento
+    
+            const resultado = document.getElementById('resultado6');
+            resultado.innerHTML = `
+              <p>O comprimento da esfera é ${comprimento.toFixed(2)}</p>
+            `;
+          }
+    
+          function calcularArea() {
+            const raio = parseFloat(document.getElementById('raio').value);
+    
+            const area = PI * (raio * raio); // Calcula a área
+    
+            const resultado = document.getElementById('resultado6');
+            resultado.innerHTML = `
+              <p>A área da esfera é ${area.toFixed(2)}</p>
+            `;
+          }
+    
+          function calcularVolume() {
+            const raio = parseFloat(document.getElementById('raio').value);
+    
+            const volume = (3 / 4) * PI * (raio * raio * raio); // Calcula o volume
+    
+            const resultado = document.getElementById('resultado6');
+            resultado.innerHTML = `
+              <p>O volume da esfera é ${volume.toFixed(2)}</p>
+            `;
+          }
+        </script>
+    </h2>
+
+
+</body>
+</html>

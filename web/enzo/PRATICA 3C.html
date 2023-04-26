@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Maior Número</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Maior Número</h2>
+<label for="numeros">Digite os números separados por vírgulas:</label>
+<input type="text" id="numeros">
+<button id="encontrarMaior">Encontrar Maior Número</button>
+<p id="resultadoMaior"></p>
+
+<script>
+document.getElementById('encontrarMaior').addEventListener('click', encontrarMaior);
+
+function encontrarMaior() {
+    let numeros = document.getElementById('numeros').value.split(',').map(n => parseFloat(n));
+    let maior = Math.max(...numeros);
+    document.getElementById('resultadoMaior').innerText = `Maior número: ${maior}`;
+}
+</script>
+</body>
+</html>
