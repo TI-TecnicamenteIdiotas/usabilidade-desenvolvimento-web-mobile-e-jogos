@@ -1,0 +1,107 @@
+:root {
+    --primaryBgColor: black;
+    --seccondaryBgColor: orangered;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+    height: 100%;
+    width: 100%;
+
+    color: #ffffff;
+}
+
+header, main, footer {
+    max-width: 800px;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    flex: 1;
+    background-color: var(--seccondaryBgColor);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 48px;
+    font-weight: bold;
+}
+
+main {
+    flex: 6;
+    background-color: black;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+main > img {
+    height: 180px;
+    width: 120px;
+    object-fit: cover;
+
+    transition: border-radius 100ms linear;
+}
+
+main > img:hover {
+    cursor: pointer;
+    border: 0 solid transparent;
+    border-radius: 40px;
+}
+
+footer {
+    flex: 1;
+    background-color: var(--seccondaryBgColor);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#footer-project-name {
+    font-weight: bold;
+}
+
+footer > div {
+    padding: 20px;
+}
+
+svg {
+    width: 20px;
+    height: 20px;
+}
+
+#footer-contact-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+#footer-contact-wrapper > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-project-whatsapp {
+    padding-left: 20px;
+    padding-right: 20px;
+}
