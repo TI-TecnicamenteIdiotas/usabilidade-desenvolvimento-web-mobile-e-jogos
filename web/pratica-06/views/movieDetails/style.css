@@ -2,12 +2,11 @@
     height: 375px;
     width: 225px;
     object-fit: cover;
+
+    border: 0 solid transparent;
+    border-radius: 20px;
 }
 
 main {
     flex-direction: column;
-}
-
-#movie-details-card {
-
 }
