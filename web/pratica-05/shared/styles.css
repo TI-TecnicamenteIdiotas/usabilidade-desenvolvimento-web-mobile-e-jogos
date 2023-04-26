@@ -31,7 +31,7 @@ img:hover {
     box-shadow: inset 4px 4px 16px black;
 }
 
-ul, li {
+ul, ol, li {
     margin: 0;
     padding: 0;
 }
