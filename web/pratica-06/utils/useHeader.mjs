@@ -1,4 +1,4 @@
-import {projectName} from "../../data";
+import {projectName} from "../data/index.mjs";
 
 function useHeader() {
     const header = document.getElementsByTagName("header")[0];

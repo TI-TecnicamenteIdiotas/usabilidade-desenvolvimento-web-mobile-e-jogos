@@ -1,5 +1,5 @@
-import {useHeader} from "../../utils/useHeader";
-import {useFooter} from "../../utils/useFooter";
+import {useHeader} from "../../utils/useHeader.mjs";
+import {useFooter} from "../../utils/useFooter.mjs";
 
 const movieDetails = JSON.parse(sessionStorage.getItem("clickedMovie"));
 

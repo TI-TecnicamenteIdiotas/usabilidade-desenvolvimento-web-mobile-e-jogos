@@ -1,6 +1,6 @@
-import {movies, projectName} from './data';
-import {useFooter} from "./utils/useFooter";
-import {useHeader} from "./utils/useHeader";
+import {movies, projectName} from './data/index.mjs';
+import {useFooter} from "./utils/useFooter.mjs";
+import {useHeader} from "./utils/useHeader.mjs";
 
 document.title = projectName;
 

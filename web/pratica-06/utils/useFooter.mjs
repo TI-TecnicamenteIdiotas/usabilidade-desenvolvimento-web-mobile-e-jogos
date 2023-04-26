@@ -1,5 +1,5 @@
-import {projectAddress, projectFacebook, projectName, projectPhone, projectWhatsapp} from "../../data/index.mjs";
-import {facebookIcon, phoneIcon, whatsappIcon} from "../../assets/index.mjs";
+import {projectAddress, projectFacebook, projectName, projectPhone, projectWhatsapp} from "../data/index.mjs";
+import {facebookIcon, phoneIcon, whatsappIcon} from "../assets/index.mjs";
 
 function useFooter() {
     const footerProjectName = document.getElementById("footer-project-name");
