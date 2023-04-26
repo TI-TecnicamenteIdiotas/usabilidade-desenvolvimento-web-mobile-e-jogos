@@ -7,28 +7,17 @@ document.title = movieDetails.name;
 
 useHeader();
 
+const movieImg = document.createElement("img");
+movieImg.id = "card-img";
+movieImg.src = movieDetails.imageUrl;
+movieImg.alt = `${movieDetails.name}-cover-image`;
+
 const main = document.getElementsByTagName("main")[0];
-const table = document.createElement("table");
-const tableHead = table.createTHead();
-const tableHeadRow = tableHead.insertRow(0);
-const tableBody = table.createTBody();
-const tableBodyRow = tableBody.insertRow(0);
-
-let tempIndex = 0;
-Object.entries(movieDetails).forEach((value, index) => {
-    if (index === 1)
-        tempIndex -= 1;
-
-    if (index !== 1) {
-        const tableHeadRowCell = tableHeadRow.insertCell(tempIndex);
-        tableHeadRowCell.innerHTML = `<b>${value[0]}</b>`;
-
-        const tableBodyRowCell = tableBodyRow.insertCell(tempIndex);
-        tableBodyRowCell.innerHTML = value[1];
-    }
-});
-
-main.appendChild(table);
+main.appendChild(movieImg);
+main.innerHTML += `<div>${movieDetails.name}</div>`;
+main.innerHTML += `<div>${movieDetails.price}</div>`;
+main.innerHTML += `<div>${movieDetails.exhibitionTimes}</div>`;
+main.innerHTML += `<div>${movieDetails.rooms}</div>`;
+main.innerHTML += `<div>${movieDetails.exhibitionTypes}</div>`;
 
 useFooter();
-

@@ -1,0 +1,9 @@
+#card-img {
+    height: 375px;
+    width: 225px;
+    object-fit: cover;
+}
+
+main {
+    flex-direction: column;
+}
