@@ -2,6 +2,7 @@ import {movies} from './data/index.mjs';
 import {useFooter} from "./utils/useFooter.mjs";
 import {useHeader} from "./utils/useHeader.mjs";
 import {useTitle} from "./utils/useTitle.mjs";
+import {useSaveStorage} from "./utils/useSaveStorage.mjs";
 
 useTitle();
 useHeader();
@@ -9,7 +10,7 @@ useHeader();
 const main = document.getElementsByTagName("main")[0];
 
 function handleClick(movieIndex) {
-    sessionStorage.setItem("clickedMovie", JSON.stringify(movies[movieIndex]));
+    useSaveStorage(movies[movieIndex]);
     location.href = "views/movieDetails";
 }
 

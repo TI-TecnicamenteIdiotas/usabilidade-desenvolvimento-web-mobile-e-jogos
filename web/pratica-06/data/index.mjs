@@ -40,7 +40,7 @@ const moviesToReplicate = [
     new movie({
         name: "the incredibles",
         imageUrl: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/2LqaLgk4Z226KkgPJuiOQ58wvrm.jpg",
-        price: 10,
+        price: 1,
         exhibitionTimes: [morning, midday, afternoon, night],
         rooms: [roomsEnum["200"], roomsEnum["400"]],
         exhibitionTypes: [exhibitionTypeEnum["2D"], exhibitionTypeEnum["3D"]]
